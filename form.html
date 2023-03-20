@@ -1,0 +1,95 @@
+<div class="content">     
+    <?php
+    if($selectAllTasks->num_rows<1){
+        ?>
+        <div class="no_task_wrapper">
+            <div class="inner_no_task_wrapper">
+                <img src="./programing-01_4x.webp" alt="">
+                <p align='center'>No task yet</p>
+            </div>
+         </div>
+        <?php
+    }else{
+        while($selectAllTasksRow = $selectAllTasks->fetch_assoc()){
+            $profileUserId = $selectAllTasksRow['userid'];  
+            $labelProfile = $conn->query("SELECT profiledata FROM profile WHERE userid='$profileUserId'");
+            $labelProfilePath = $labelProfile->fetch_assoc();
+            $profileUserIdPic =  $labelProfilePath['profiledata'];
+        ?>
+        <a href="?You got it men">
+            <div class="task_container">
+                <div class="upper_task_container">
+                    <h3 class="tasktitle"><?php echo $selectAllTasksRow['tasktitle'];?></h2>
+                    <div class="indicator">
+                        <div class="circle">                                            
+                        </div>
+                    </div>
+                </div>
+                <div class="lower_task_container">
+                    <div class="date">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <small>till <?php echo $selectAllTasksRow['day'];?></small>
+                    </div>
+                    <div class="profile" style=" width:30px; height:30px;border: 2px solid #00800080; display:flex; justify-content:center; align-items:center; border-radius:50%;">
+                        <img src="userprofile/<?php echo $profileUserIdPic;?>">
+                    </div>
+                </div>
+            </div>
+        </a>
+        <?php
+        }//end of while Loop **fetching data from the database**
+    }
+    ?>
+</div> 
+<script>
+    document.getElementsByClassName
+    var x = document.querySelector();
+    x.onclick  =()=>{
+        alert();
+    }
+</script>
+
+    <?php
+    public function taskidoEasyFun($mainQuery, $queryFetch , $setId, $queryProfile, $fetchProfilePath, $setUserIdPic){
+    if($mainQuery->num_rows<1){
+        ?>
+        <div class="no_task_wrapper">
+            <div class="inner_no_task_wrapper">
+                <img src="./programing-01_4x.webp" alt="">
+                <p align='center'>No task yet</p>
+            </div>
+         </div>
+        <?php
+    }else{
+        while($queryFetch = $mainQuery->fetch_assoc()){
+            $setId = $queryFetch['userid'];  
+            $queryProfile = $conn->query("SELECT profiledata FROM profile WHERE userid='$setId'");
+            $fetchProfilePath = $queryProfile->fetch_assoc();
+            $setUserIdPic =  $fetchProfilePath['profiledata'];
+        ?>
+        <a href="?You got it men">
+            <div class="task_container">
+                <div class="upper_task_container">
+                    <h3 class="tasktitle"><?php echo $queryFetch['tasktitle'];?></h2>
+                    <div class="indicator">
+                        <div class="circle">                                            
+                        </div>
+                    </div>
+                </div>
+                <div class="lower_task_container">
+                    <div class="date">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <small>till <?php echo $queryFetch['day'];?></small>
+                    </div>
+                    <div class="profile" style=" width:30px; height:30px;border: 2px solid #00800080; display:flex; justify-content:center; align-items:center; border-radius:50%;">
+                        <img src="userprofile/<?php echo $setUserIdPic;?>">
+                    </div>
+                </div>
+            </div>
+        </a>
+        <?php
+        }//end of while Loop **fetching data from the database**
+    }
+    
+}
+?>

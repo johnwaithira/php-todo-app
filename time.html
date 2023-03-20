@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="time">taskIDO watch </title>
+    <link rel="stylesheet" href="./taskido/css/aos.css">
+</head>
+<body>
+    <style>
+        body{
+            max-width: 100%;
+            height: 80vh;
+            background: #f2f2f2;
+            display: grid;
+            place-items: center;
+        }
+        :root{
+            --h:4px;
+        }
+        .clock_frame{
+            width: 250px;
+            display: flex;
+            align-items: center;
+            height: 250px;
+            border: 3px solid #1f1f1f9a;
+            border-radius: 50%;
+            margin: 30px;
+            transform: rotate(90deg);
+        }
+        
+        .seconds_arm{
+            position: absolute;
+            width: 100%;
+            height: var(--h);
+           
+        }
+       
+        .show-s{
+            width: 55%;
+            display: flex;
+            height: var(--h);
+            justify-content: right;
+        }
+        .show-s .s{
+            background: rgb(131, 124, 131);
+            width: 90%;
+            height: var(--h);
+        }
+        .minutes_arm{
+            width: 100%;
+            height:var(--h);
+            align-items: center;
+            display: flex;           
+        }
+        .show-m{
+            width: 55%;
+            display: flex;
+            height: var(--h);
+            justify-content: right;
+        }
+        .show-m .m{
+            background: rgb(83, 114, 182);
+            width: 80%;
+            height: var(--h);
+        }
+        .hours_arm{
+            position: absolute;
+            width: 100%;
+            height: var(--h);
+            align-items: center;
+            display: flex;           
+        }
+        .show-h{
+            width: 55%;
+            display: flex;
+            height: var(--h);
+            justify-content: right;
+        }
+        .show-h .h{
+            background: rgb(148, 167, 95);
+            width: 60%;
+            height: var(--h);
+            
+        }
+       
+    </style>
+    <div class="clock" data-aos="zoom-out data-aos-delay="300">
+        <div class="clock_frame">
+           <div class="seconds_arm">
+            <div class="show-s">
+                <div class="s"></div>
+            </div>
+           </div>
+           <div class="minutes_arm">
+            <div class="show-m">
+                <div class="m"></div>
+            </div>
+           </div>
+
+           <div class="hours_arm">
+            <div class="show-h">
+                <div class="h"></div>
+            </div>
+           </div>
+        </div>
+    </div>
+    <p></p>
+    <script>
+       setInterval(() => {
+        var x = new Date();
+        x = x.getHours();
+        var time = new Date();
+        time = time.toLocaleTimeString();
+        var y = new Date();
+        y = y.getMinutes();
+        var z = new Date();
+        z = z.getSeconds();
+        var f = new Date().getTime();
+        // full = Math.floor(f % (1000* 60)/ 1000);
+        full = "";
+        hours = x * 30;
+        minutes = y * 6;
+        seconds = (z) * 6;
+        var v = new Date();       
+        document.querySelector("p").innerHTML = full;
+        document.getElementById("time").innerHTML =  " .taskIDO "+ time;
+        document.querySelector(".seconds_arm").style.transform="rotate("+ seconds + "deg)";
+        document.querySelector(".minutes_arm").style.transform="rotate("+ minutes + "deg)";
+        document.querySelector(".hours_arm").style.transform="rotate("+ hours + "deg)";
+       }, 1000); 
+      
+    </script>
+    <script src="./taskido/javascript/aos.js"></script>
+    <script src="./taskido/javascript/animate.js"></script>
+</body>
+</html>

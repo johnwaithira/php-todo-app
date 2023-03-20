@@ -1,0 +1,22 @@
+::placeholder{
+    font-weight: 700;
+    color: rgb(90, 99, 99);
+}
+button{
+    cursor: pointer;
+}
+img{
+    width: 100%;
+}
+li{list-style: circle;}
+
+@font-face {
+    font-family: codewj;
+    src: url(./TT-Interphases-Var-Roman.woff2);
+}
+*{
+    font-family: codewj;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+}

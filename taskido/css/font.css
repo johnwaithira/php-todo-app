@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    font-family: codewj;
+}
+::placeholder{
+    font-weight: 700;
+    font-size: 16px;
+    color: grey;
+}
+a{
+    text-decoration: none;
+}
+input{ 
+    background: inherit;
+    border: none;
+    outline: none;}
+button{    cursor: pointer;
+    border: none;}
+@font-face {
+    font-family: codewj;
+    src: url(./TT-Interphases-Var-Roman.woff2);
+}
+.header{
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+nav{
+    padding: 20px 0;
+    max-width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+}
+.logo{
+    font-size: 25px;
+    font-weight: 800;
+}
+.account-bar li{
+    padding: 0 10px;
+    display: inline-block;
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskiDo Task Manager</title>
+    <link rel="stylesheet" href="./taskido/css/landing-1.0.0.21.min.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./taskido/css/aos.css">
+</head>
+<body>
+    <div class="landing-scroll-top-div">
+        <button id="scroll_btn">&#10095;</p>
+    </div>
+    <!-- navigation -->
+    <div class="landing_navigation w-100" id="navigation">
+        <div class="landing_inner_navigation_wrapper">
+            <div class="landing_navigation_links_logo">
+                <h1>TaskiDo </h1>
+            </div>
+            <input type="checkbox" name="check" id="check">
+            <div class="landing_auth_links">
+                <li><a href="" id="home" onclick="closeMenu()" >Home</a></li>
+                <li><a href="#about" onclick="closeMenu()" >About</a></li>
+                <!-- <li><a href="#dev" onclick="closeMenu()" >Dev</a></li> -->
+                <li><a href="#contact" onclick="closeMenu()" >Contact</a></li>
+                <li><a href="auth/login"  onclick="closeMenu()" class="auth  p-10-20 login">Login</a></li>
+                <li><a href="auth/sign"  onclick="closeMenu()" class="auth p-10-20  signup">SignUp</a></li>
+            </div>
+            <label for="check">
+                <div class="menu"></div>
+                <div class="menu mid"></div>
+                <div class="menu"></div>
+            </label>
+        </div>
+    </div>
+    <!-- Landing Content -->
+    <div class="landing_page_context w-95 p-t-100" data-aos="zoom-out">
+        <div class="landing_page_context_inner_wrapper p-t-20" data-aos="zoom-in" data-aos-delay="50">
+            <div class="landing_description_div col-6" >
+                <div class="landing_slider">
+                    <div class="landing_slides">
+                        <h1>Freelancer's life is a mess</h1>
+                        <p>Planning the daily work it has never been so impacting.</p>
+                    </div>
+                    <div class="landing_slides">
+                        <h1>Productivity Fullhouse Always</h1>
+                        <p>Plan. Organize. Track. In one visual, collaborative space</p>
+                    </div>
+                    <div class="landing_slides">
+                        <h1>Manage your team & everything with <span class="span_h1">TaskiDo</span></h1>
+                        <p>When you are overwhelmed by the amount of work you have on your plate, stop and rethink</p>
+                    </div>
+                    <div class="landing_dot_indicator w-100">
+                        <div class="dot" onclick="currentSlide(1)"></div>
+                        <div class="dot" onclick="currentSlide(2)"></div>
+                        <div class="dot" onclick="currentSlide(3)"></div>
+                    </div>
+
+                    <div class="landing_start_signing_btn p-15">
+                        <form method="post" class="landingform">
+                            <div class="formgroup">
+                                <div class="errordiv"></div>
+                                <input  type="email" name="landingemail" placeholder="name@company.com">
+                                <button type="submit" name="landingbtn">Create</button>
+                            </div>
+                        </form>
+                        <p>Do you have an Account? <span class="loginBtnSpan"><a href="./auth/login">Login</a></span> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="landing_description_image_div col-6">
+                <div class="landing_description_image_div_inner_wrapper">
+                    <img src="./undraw_researching_22gp.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="about" id="about" data-aos="zoom-in">
+        <div class="" id="abouti" data-aos="fade-in" data-aos-delay="50">
+            <div class="about-description col-m-6 ">
+                <div class="inner-about-wrapper">
+                 <div class="about-title">
+                    <h1>.taskIDO</h1>
+                </div>
+                 <div class="about-content" data-aos="zoom-in">
+                    <p>Your all time personal assistance. Manage you tasks, hobbies, shopping list with taskiDO. Avoid being overwhelmed with the amount of work you’ve got to do, forget to do things that are important, always keep  deadlines of the tasks with taskiDO.
+                        taskiDO is a lightweight software that help you manage your tasks and notifies you when your scheduled time approaches.
+                    </p>
+                 </div>
+                </div>
+            </div>
+            <div class="svg col-m-6">
+                <img src="./about.svg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    <!-- Services -->
+    <!-- <p></p> -->
+    <!-- Contact -->
+    <div class="landing_contact_div" id="contact">
+        <h2>Contact Us</h2>
+        <div class="landing_contact_div_wrapper">
+            <div class="landing_contact_form">
+                <form  method="POST" id="contactform">
+                <div class="alert_area"></div>
+                <input type="text" name="contactname" id="name" placeholder="Your name">
+                <input type="email" name="contactemail" id="email" placeholder="Your email">
+                <textarea placeholder="Enter you message here" name="contactmessage" id="autoresize"></textarea>
+                <button id="contactbutton" name="contactbtn" type="submit" value="contactbtn">Send</button>
+               </form>
+            </div>
+        </div>
+    </div>
+    <!-- /news letter -->
+    <div class="landing_news_letter_div w-100">
+        <div class=" w-80 p-100-0 m-0-auto landing_news_letter_div_inner_wrapper">
+            <h3 class="p-30-0">Subscribe to Newsletter</h3>
+            <form method="post" class="newsletter_sub">
+                <div class="news_letter p-7-0"></div>
+                <input type="email" class="p-10-20" name="newsletteremail" placeholder="taskido@notification.io">
+                <button type="submit" id="subscribe">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        //newsletter
+        const newsform = document.querySelector(".newsletter_sub"),
+        msg_div = newsform.querySelector(".news_letter"),
+        newsletteremail = newsform.querySelector("input");
+        subbtn = newsform.querySelector("#subscribe");
+
+        newsform.onsubmit = (e) =>{
+            e.preventDefault();
+        }
+        subbtn.onclick = () =>{
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "./configuration/newsletter.php");
+            xhr.onload = () =>{
+                if(xhr.readyState === XMLHttpRequest.DONE){
+                        if(xhr.status === 200){
+                            let data = xhr.response;
+                            msg_div.innerHTML = data;
+                            setTimeout(() => {
+                            msg_div.innerHTML = '';
+                            newsletteremail.value = '';     
+                        }, 4000);
+                    }
+                }
+            }
+            let formData = new FormData(newsform);
+            xhr.send(formData);
+        }
+        //newsletter end
+    </script>
+
+    <!-- Testimonies -->
+    <!-- footer -->
+    <footer>
+        <hr>
+        <div class="footer-part">
+            <div class="col-4  box col-m-5">
+                <div class="box-footer">
+                    <div class="taskidofooter">
+                        <h1>taskiDO</h1>
+                    </div>
+                    <div class="taskidodescription">
+                        <p>Planning the daily work it has never been so impacting. Use .taskIDO to manage your tasks and event schedule . </p>
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 box col-m-5">
+                <div class="box-footer">
+                    <div class="title-footer">
+                        <h2>Quick Links</h2>
+                    </div>
+                    <div class="items">
+                        <li><a href="./auth/login">Login</a></li>
+                        <li><a href="./auth/sign">SignUp</a></li>
+                        <li><a href="./auth/resetpassword">Reset Password</a></li>                          
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4  box col-m-5">
+                <div class="box-footer">
+                    <div class="title-footer">
+                        <h2>Communities</h2>
+                    </div>
+                    <div class="items">
+                        <li><a href="">Developer forum</a></li>
+                        <li><a href="https://github.com/taskiDO">Github</a></li>
+                        <li><a href="">Join</a></li>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>taskido &copy;  2021 - <span id="currentyear"></span>   All rights reserved </p>
+            <br>
+            <p>Developed by <span style="color: #25265e; font-weight: 600;"><a href="https://linkedin.com/in/johnwaithira">Jon Waithira</a></span></p>
+        </div>
+        <p>powered by <span>gracevil dev</span></p>
+        <br>
+    </footer> 
+    <script>
+       
+        //scroll btn
+        let scroll_button =  document.getElementById("scroll_btn");
+        scroll_button.style.display = "none";
+        scroll_button.onclick = ()=>{
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        window.onscroll = () => {
+            if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40){
+                scroll_button.style.display = "block";
+            }else{
+                scroll_button.style.display = "none";
+            }
+        }
+        //end
+         //home click
+        let home = document.getElementById("home");
+        home.onclick = (e) =>{
+            e.preventDefault();
+            scroll_button.click();
+            document.querySelector(".landing_inner_navigation_wrapper label").click();
+        }
+        //end
+        // contact ajax script
+        const contactform = document.querySelector("#contactform"), 
+            contactbutton = contactform.querySelector("button"),
+            name = contactform.querySelector("#name"),
+            email = contactform.querySelector("#email"),
+            textarea = contactform.querySelector("#autoresize"),
+            alertbox = contactform.querySelector(".alert_area");
+            contactform.onsubmit = (e) =>{
+                e.preventDefault();
+            }
+            contactbutton.onclick =()=>{
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "./configuration/contact.php", true);
+                xhr.onload = () =>{
+                    if(xhr.readyState === XMLHttpRequest.DONE){
+                        if(xhr.status === 200){
+                            let data = xhr.response;
+                            alertbox.innerHTML = data;
+                            setTimeout(() => {
+                            alertbox.innerHTML = '';
+                            name.value = '';   
+                            email.value = '';   
+                            textarea.value = '';   
+                            }, 4000);
+                        }
+                    }
+                }
+                let formData = new FormData(contactform);
+                xhr.send(formData);
+            }
+    //  end of contact ajax script
+
+    //try signup
+        const form = document.querySelector(".landingform"),
+        landingemail = form.querySelector("input"),
+        errordiv = form.querySelector(".errordiv"),
+        landingbtn =  form.querySelector("button");
+
+        form.onsubmit= (e)=>{
+            e.preventDefault();
+        }
+        landingbtn.onclick = () =>{
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "configuration/create.php", true);
+            xhr.onload = () =>{
+                if(xhr.readyState === XMLHttpRequest.DONE){
+                    if(xhr.status === 200){
+                        let data = xhr.response;
+                        if(data == 'emailok'){
+                            window.location.assign("./auth/sign?create="+landingemail.value);
+                        }
+                        errordiv.innerHTML = data;
+                        landingemail.value = '';
+                        setTimeout(() => {
+                            errordiv.innerHTML = '';
+                        }, 4000);
+                    }
+                }
+            }
+            let formData = new FormData(form);
+            xhr.send(formData);
+        }
+    </script>
+    <script src="./taskido/javascript/visitors.js"></script>
+    <script src="./taskido/javascript/aos.js"></script>
+    <script src="./taskido/javascript/animate.js"></script>
+   <script src="./taskido/javascript/taskido-1.0.0.21.min.js"></script>
+   <script src="./taskido/javascript/jquery-3.4.1.min.js"></script>
+   <script src="./taskido/javascript/autoResize-1.0.0.21.min.js"></script>
+</body>
+</html>

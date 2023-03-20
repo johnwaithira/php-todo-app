@@ -1,0 +1,10 @@
+@font-face {
+    font-family: codewj;
+    src: url(./TT-Interphases-Var-Roman.woff2);
+}
+body{
+    font-family: codewj;
+}
+a{
+    text-decoration: none;
+}
